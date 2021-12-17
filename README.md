@@ -1,4 +1,4 @@
-# e2e-encryption (End-to-End Encryption `npm` Package)
+# react-native-e2e-encryption (End-to-End Encryption `npm` Package)
 
 ## Overview
 
@@ -13,10 +13,16 @@ You can install `e2e-encryption` via a package manager:
 [NPM](https://www.npmjs.org/):
 
 ```
-$ npm install e2e-encryption
+$ npm install react-native-e2e-encryption
 ```
 
-or [download source code](https://github.com/mychewcents/e2e-encryption).
+[yarn](https://yarnpkg.com/):
+
+```
+$ yarn add react-native-e2e-encryption
+```
+
+or [download source code](https://github.com/wolkeneis/e2e-encryption).
 
 ## Usage
 
