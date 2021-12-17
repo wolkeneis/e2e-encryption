@@ -1,13 +1,30 @@
 import { secretbox, box, randomBytes } from 'tweetnacl';
-import {
-  decodeUTF8,
-  encodeUTF8,
-  encodeBase64,
-  decodeBase64,
-} from 'tweetnacl-util';
+import { Buffer } from 'buffer';
 
 const newNonceS = () => randomBytes(secretbox.nonceLength);
 const newNonceA = () => randomBytes(box.nonceLength);
+
+function decodeUTF8(string) {
+  let i; const d = unescape(encodeURIComponent(string)); const
+    b = new Uint8Array(d.length);
+  for (i = 0; i < d.length; i += 1) b[i] = d.charCodeAt(i);
+  return b;
+}
+
+function encodeUTF8(array) {
+  let i; const
+    string = [];
+  for (i = 0; i < array.length; i += 1) string.push(String.fromCharCode(array[i]));
+  return decodeURIComponent(escape(string.join('')));
+}
+
+function encodeBase64(array) {
+  return Buffer.from(array).toString('base64');
+}
+
+function decodeBase64(string) {
+  return new Uint8Array(Array.prototype.slice.call(Buffer.from(string, 'base64'), 0));
+}
 
 class E2E {
   /**
